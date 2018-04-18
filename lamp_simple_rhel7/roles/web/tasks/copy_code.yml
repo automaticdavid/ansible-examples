@@ -19,9 +19,11 @@
   
 - name: Copy app to nodes 
   copy:
-    src: "{{ r_tempfile.path }}
+    src: "{{ r_tempfile.path }}"
     dest: /var/www/html/
   become: yes
 
 - name: Creates the index.php file
-  template: src=index.php.j2 dest=/var/www/html/index.php
+  template: 
+    src: index.php.j2 
+    dest: /var/www/html/index.php
