@@ -1,6 +1,11 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
 
+- name: yum-clean-metadata
+  command: yum clean metadata
+  args:
+    warn: no
+    
 - name: Install ntp
   yum: name=ntp state=present
   tags: ntp
