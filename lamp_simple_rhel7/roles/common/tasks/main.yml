@@ -6,6 +6,14 @@
 #  args:
 #    warn: no
 
+- name: Wait for SSH to come up
+  wait_for:
+    host: "{{ inventory_hostname }}"
+    port: 22
+    delay: 60
+    timeout: 320
+    state: started
+
 - name: Ansible remove file
   file:
     path: "/etc/yum.repos.d/cd.repo"
