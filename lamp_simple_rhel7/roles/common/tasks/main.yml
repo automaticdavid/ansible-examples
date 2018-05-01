@@ -6,13 +6,6 @@
 #  args:
 #    warn: no
 
-- name: Wait for SSH to come up
-  wait_for:
-    host: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-    port: 22
-    delay: 60
-    timeout: 320
-    state: started
 
 - name: Ansible remove file
   file:
