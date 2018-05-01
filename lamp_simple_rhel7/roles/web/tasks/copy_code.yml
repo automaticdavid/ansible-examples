@@ -7,13 +7,13 @@
     state: directory
     suffix: app
   register: r_tempfile
-  connection: local
+  delegate_to: localhost
   run_once: yes
   become: no
 
 - name: Copy the code from repository
   git: repo={{ repository }} dest={{ r_tempfile.path }}
-  connection: local
+  delegate_to: localhost
   run_once: yes
   become: no
   
